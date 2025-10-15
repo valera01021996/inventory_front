@@ -1,0 +1,44 @@
+[
+    {
+        "id": "moscow",
+        "name": "Moscow",
+        "status": "Локация активна",
+        "free_racks": "8 стоек / 241U свободно",
+        "ip_address": "172.31.230.69",
+        "details_tiles": [
+            {"title": "Настройки локации", "count": "11 ОС, 1 шаблон диагностики", "status": "Все настройки"},
+            {"title": "Сети и пулы IP-адресов", "count": "2 физических сети", "status": "3 пула IP-адресов"},
+            {"title": "Сетевое оборудование", "count": "Cisco Catalyst 2960", "status": "Исправен"},
+            {"title": "Управление питанием", "count": "Всего 3 PDU", "status": "Все исправны"},
+            {"title": "Серверы", "count": "Всего 19 серверов", "status": "Все исправны"}
+        ]
+    },
+    {
+        "id": "london",
+        "name": "London",
+        "status": "Локация активна",
+        "free_racks": "8 стоек / 234U свободно",
+        "ip_address": "172.31.230.69",
+        "details_tiles": [
+            {"title": "Настройки", "count": "7 ОС", "status": "ОК"},
+            {"title": "Сети", "count": "1 физическая сеть", "status": "2 пула"},
+            {"title": "Оборудование", "count": "Juniper EX2300", "status": "Исправен"},
+            {"title": "Питание", "count": "Всего 2 PDU", "status": "Все исправны"},
+            {"title": "Серверы", "count": "Всего 15 серверов", "status": "ОК"}
+        ]
+    },
+    {
+        "id": "amsterdam",
+        "name": "Amsterdam",
+        "status": "Добавить стойки",
+        "free_racks": null,
+        "ip_address": "172.31.230.70",
+        "details_tiles": [
+            {"title": "Настройки", "count": "Нет", "status": "Пусто"},
+            {"title": "Сети", "count": "Нет", "status": "Пусто"},
+            {"title": "Оборудование", "count": "Нет", "status": "Пусто"},
+            {"title": "Питание", "count": "Нет", "status": "Пусто"},
+            {"title": "Серверы", "count": "Нет", "status": "Пусто"}
+        ]
+    }
+]

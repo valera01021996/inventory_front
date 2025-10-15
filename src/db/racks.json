@@ -1,0 +1,238 @@
+[
+    {
+        "id": "moscow-rack-main",
+        "locationId": "moscow",
+        "name": "Main rack",
+        "unit_height": 42,
+        "occupied_u": 39,
+        "free_u": "3 свободно",
+        "total_devices": 22,
+        "ip_pool": "HA",
+        "note": "",
+        "utilization_percent": 92,
+        "units": [
+            {
+                "unit": 1,
+                "name": "Emerson Liebert NX 20kVA",
+                "type": "pdu",
+                "u_size": 2,
+                "status": "ok"
+            },
+            {
+                "unit": 3,
+                "name": "Зарезервирован",
+                "type": "reserved",
+                "u_size": 3,
+                "status": "ok",
+                "reserved_until": "до 14.07.2022"
+            },
+            {
+                "unit": 6,
+                "name": "Middle server 4",
+                "type": "server",
+                "u_size": 2,
+                "status": "ok"
+            },
+            {
+                "unit": 8,
+                "name": "Зарезервирован",
+                "type": "reserved",
+                "u_size": 3,
+                "status": "ok",
+                "reserved_until": "до 21.04.2022"
+            },
+            {
+                "unit": 11,
+                "name": "Small server 12",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 12,
+                "name": "Middle server 8",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 13,
+                "name": "Служебный",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 14,
+                "name": "Small server 13",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 15,
+                "name": "Зарезервирован",
+                "type": "reserved",
+                "u_size": 3,
+                "status": "ok",
+                "reserved_until": "до 27.03.2022"
+            },
+            {
+                "unit": 18,
+                "name": "APC PDU 2",
+                "type": "pdu",
+                "u_size": 2,
+                "status": "ok"
+            },
+            {
+                "unit": 20,
+                "name": "Emerson Liebert NX 15kVA",
+                "type": "pdu",
+                "u_size": 2,
+                "status": "ok"
+            },
+            {
+                "unit": 22,
+                "name": "Small server 15",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 23,
+                "name": "Small server 16",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 24,
+                "name": "Small server 14",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 25,
+                "name": "Middle server 7",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 26,
+                "name": "Big server 3",
+                "type": "server",
+                "u_size": 2,
+                "status": "ok"
+            },
+            {
+                "unit": 28,
+                "name": "Зарезервирован",
+                "type": "reserved",
+                "u_size": 4,
+                "status": "ok",
+                "reserved_until": "до 26.03.2022"
+            },
+            {
+                "unit": 32,
+                "name": "Small server 10",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 33,
+                "name": "Small server 9",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 34,
+                "name": "Middle server 6",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 35,
+                "name": "Big server 2",
+                "type": "server",
+                "u_size": 2,
+                "status": "ok"
+            },
+            {
+                "unit": 37,
+                "name": "Зарезервирован",
+                "type": "reserved",
+                "u_size": 2,
+                "status": "ok",
+                "reserved_until": "до 24.03.2022"
+            },
+            {
+                "unit": 39,
+                "name": "Cisco Catalyst 2960",
+                "type": "switch",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 40,
+                "name": "Emerson Liebert NX 30kVA",
+                "type": "pdu",
+                "u_size": 2,
+                "status": "ok"
+            }
+        ]
+    },
+    {
+        "id": "moscow-rack-1",
+        "locationId": "moscow",
+        "name": "Rack 1",
+        "unit_height": 42,
+        "occupied_u": 9,
+        "free_u": "33 свободно",
+        "total_devices": 2,
+        "ip_pool": "HA",
+        "note": "123321",
+        "utilization_percent": 21,
+        "units": [
+            {
+                "unit": 1,
+                "name": "Free Space Monitor",
+                "type": "server",
+                "u_size": 1,
+                "status": "ok"
+            },
+            {
+                "unit": 2,
+                "name": "Reserved for Project X",
+                "type": "reserved",
+                "u_size": 3,
+                "status": "ok",
+                "reserved_until": "до 01.11.2022"
+            },
+            {
+                "unit": 5,
+                "name": "MOS-DB-002",
+                "type": "server",
+                "u_size": 4,
+                "status": "ok"
+            }
+        ]
+    },
+    {
+        "id": "london-rack-2",
+        "locationId": "london",
+        "name": "Rack 2",
+        "unit_height": 42,
+        "occupied_u": 10,
+        "free_u": "32 свободно",
+        "total_devices": 4,
+        "ip_pool": "NA",
+        "note": "",
+        "utilization_percent": 24,
+        "units": []
+    }
+]
