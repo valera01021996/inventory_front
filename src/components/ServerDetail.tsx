@@ -39,7 +39,7 @@ export default function ServerDetail({ server }: ServerDetailProps) {
                         <p className="font-medium text-gray-700">{server.device_type.manufacturer.name}</p>
                     </div>
                     <div>
-                        <p className="text-xs text-gray-500">OC</p>
+                        <p className="text-xs text-gray-500">Роль</p>
                         <p className="font-medium text-gray-700">{server.role.name}</p>
                     </div>
                 </div>
