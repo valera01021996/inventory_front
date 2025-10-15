@@ -13,15 +13,17 @@ const RegionCard: React.FC<RegionCardProps> = ({ region, isSelected }) => {
 
     return (
         <div 
-            className={`w-48 p-4 border-2 flex flex-col gap-2 rounded-lg cursor-pointer bg-white transition ${isSelected ? 'border-gray-400 shadow-md' : 'border-gray-200 hover:border-gray-400'}`}
+            className={`w-48 p-4 border-2 flex flex-col gap-1 rounded-lg cursor-pointer bg-white transition ${isSelected ? 'border-gray-400 shadow-md' : 'border-gray-200 hover:border-gray-400'}`}
             onClick={() => dispatch(setLocation(region.id))}
         >
             <h3 className="font-semibold">{region.name}</h3>
-            {/* <p className="text-xs text-green-600">{location?.status}</p> */}
-            {region.device_count != null && (
-                <p className="text-infra-blue text-xs mt-2">{region.device_count} devices</p>
-            )}
-            {/* <p className="text-xs text-gray-500">{location.ip_address}</p> */}
+            <p className={`text-xs ${region.is_active ? 'text-green-600' : 'text-red-600'}`}>
+                {region.is_active ? 'Active' : 'Inactive'}
+            </p>
+            <div className='flex flex-col gap-0.5'>
+                <p className="text-infra-blue text-xs">Servers: {region.device_count ?? '-'}</p>
+                <p className="text-infra-blue text-xs">Racks: {region.rack_count ?? '-'}</p>
+            </div>
         </div>
     );
 };

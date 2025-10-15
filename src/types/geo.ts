@@ -4,7 +4,9 @@ import type { ResultList } from "./api";
 export interface RegionDTO {
     id: number;
     name: string;
-    device_count: number
+    rack_count: number;
+    device_count: number;
+    is_active: boolean;
 }
 
 export type RegionList = ResultList<RegionDTO>;
