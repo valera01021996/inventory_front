@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useLoginMutation } from 'services/index';
-import { setCredentials } from 'store/slices/authSlice';
 import { useAppDispatch } from 'hooks/useAppDispatch';
+import { setCredentials } from 'store/slices/authSlice';
 
 export default function LoginPage() {
     const dispatch = useAppDispatch();

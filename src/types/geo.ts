@@ -4,6 +4,7 @@ import type { ResultList } from "./api";
 export interface RegionDTO {
     id: number;
     name: string;
+    device_count: number
 }
 
 export type RegionList = ResultList<RegionDTO>;

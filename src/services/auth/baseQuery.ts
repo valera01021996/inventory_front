@@ -15,7 +15,7 @@ export const baseQuery = fetchBaseQuery({
     prepareHeaders: (headers: Headers, { getState }) => {
         const { access_token } = (getState() as RootState).auth;
         if (access_token) {
-            headers.set('Authorization', `Bearer ${access_token}`);
+            headers.set('Authorization', `Token ${access_token}`);
         }
     },
 });

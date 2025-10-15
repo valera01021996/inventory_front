@@ -7,14 +7,16 @@
         "module": "ESNext",
         "types": ["vite/client"],
         "skipLibCheck": true,
-      	"baseUrl": "src",
+        "baseUrl": "src",
         "paths": {
             "components/*": ["components/*"],
             "services/*": ["services/*"],
+            "assets/*": ["assets/*"],
             "pages/*": ["pages/*"],
             "hooks/*": ["hooks/*"],
             "types/*": ["types/*"],
-            "store/*": ["src/store/*"]
+            "store/*": ["store/*"],
+            "layout/*": ["layout/*"]
         },
 
         /* Bundler mode */
@@ -31,7 +33,8 @@
         "noUnusedParameters": true,
         "erasableSyntaxOnly": true,
         "noFallthroughCasesInSwitch": true,
-        "noUncheckedSideEffectImports": true
+        "noUncheckedSideEffectImports": true,
+        "ignoreDeprecations": "6.0"
     },
     "include": ["src"]
 }

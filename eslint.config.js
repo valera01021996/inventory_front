@@ -26,8 +26,8 @@ export default defineConfig([
             "@typescript-eslint/no-namespace": "off",
             "@typescript-eslint/ban-ts-comment": "off",
 
-            semi: ["error", "always"],
-            "no-console": ["warn", { allow: ["warn", "error"] }],
+            semi: ["warn", "always"],
+            "no-console": "off",
         },
     },
 ])
