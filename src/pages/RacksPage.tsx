@@ -60,7 +60,7 @@ const RacksPage: React.FC = () => {
         <div className="p-8 bg-gray-50 min-h-screen">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-bold text-gray-800">Стойки</h1>
-                <button className="flex items-center bg-infra-blue text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition">
+                <button className="flex items-center bg-blue-500 text-white font-medium py-2 px-4 rounded-lg shadow-md hover:bg-blue-600 transition">
                     + Добавить стойки
                 </button>
             </div>

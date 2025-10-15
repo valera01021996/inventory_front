@@ -81,10 +81,9 @@ const Sidebar: React.FC = () => {
     return (
         <div className="w-56 bg-infra-dark text-white bg-[#484369] h-screen flex flex-col fixed">
             
-            {/* 1. TOP HEADER: Fixed Project Name (e.g., Admin Panel) */}
             <div className="p-4 text-xl font-bold border-b border-gray-700 h-16 flex items-center">
                 <Link to="/">
-                    Admin Panel
+                    Админ Панель
                 </Link>
             </div>
 
@@ -116,7 +115,7 @@ const Sidebar: React.FC = () => {
                                         ? "/servers"
                                         : item.path
                                 )
-                                    ? "bg-infra-blue text-white font-semibold"
+                                    ? "bg-gray-700 text-white font-semibold"
                                     : "hover:bg-gray-700 text-gray-300"
                             }`}
                     >

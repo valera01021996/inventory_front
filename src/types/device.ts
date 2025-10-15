@@ -18,6 +18,16 @@ export interface DeviceDTO {
         id: number;
         name: string;
     };
+    location: {
+        id: number;
+        name: string;
+        site: number;
+    };
+    site: {
+        id: number;
+        name: string;
+        region: number;
+    };
     name: string;
     height: number;
     position: number;

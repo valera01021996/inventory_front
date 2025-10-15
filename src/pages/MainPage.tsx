@@ -1,10 +1,9 @@
-import React from "react";
-import { useAppSelector } from "hooks/useAppSelector";
 import { useFetchDevicesQuery, useFetchRegionsQuery } from "services/index";
+import { useAppSelector } from "hooks/useAppSelector";
 import RegionDetail from "components/RegionDetail";
 import RegionCard from "components/RegionCard";
 
-const MainPage: React.FC = () => {
+export default function MainPage() {
     const regionID = useAppSelector(state => state.geo.region);
     const { data: regions } = useFetchRegionsQuery({});
     const { data: servers} = useFetchDevicesQuery({
@@ -33,5 +32,3 @@ const MainPage: React.FC = () => {
         </div>
     );
 };
-
-export default MainPage;
