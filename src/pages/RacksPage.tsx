@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { getRacks } from '../hooks/dataFetcher';
 import type { Rack } from '../types/inventory';
 
-const RacksList: React.FC = () => {
+const RacksPage: React.FC = () => {
     const allRacks = getRacks();
     const navigate = useNavigate();
 
@@ -84,4 +84,4 @@ const RacksList: React.FC = () => {
     );
 };
 
-export default RacksList;
+export default RacksPage;

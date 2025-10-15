@@ -15,7 +15,7 @@ const getUnitColor = (unitType: RackUnit['type']) => {
 };
 
 
-const RackDetail: React.FC = () => {
+const RackDetailPage: React.FC = () => {
     const { rackId } = useParams<{ rackId: string }>();
     const allRacks = getRacks();
     const rack = useMemo(() => allRacks.find(r => r.id === rackId), [rackId, allRacks]);
@@ -199,4 +199,4 @@ const RackDetail: React.FC = () => {
     );
 };
 
-export default RackDetail;
+export default RackDetailPage;

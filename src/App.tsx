@@ -1,46 +1,29 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import LocationsDashboard from "./pages/LocationsDashboard";
-import ServersList from "./pages/Servers";
-import Layout from "./components/Layout";
-import RacksList from "./pages/Racks";
-import RackDetail from "./pages/RackDetail";
+import { Suspense, useCallback } from "react";
+import { Routes, Route } from "react-router";
+import MainLayout from "layout/MainLayout";
+import { RequireAuth } from "layout/RequireAuth";
+import { PageLoader } from "components/PageLoader";
+import type { AppRoutesProps } from "route_config";
+import { routeConfig } from "routes";
 
 function App() {
-    return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Layout>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={<Navigate to="/locations" replace />}
-                        />
+    const renderWithWrapper = useCallback((route: AppRoutesProps) => {
+        let element = (
+            <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
+        );
 
-                        <Route
-                            path="/locations"
-                            element={<LocationsDashboard />}
-                        />
-                        <Route
-                            path="/servers/:locationId"
-                            element={<ServersList />}
-                        />
-                        <Route path="/racks" element={<RacksList />} />
-                        <Route path="/racks/:rackId" element={<RackDetail />} />
-                        <Route
-                            path="*"
-                            element={
-                                <div className="flex items-center justify-center h-screen text-xl">
-                                    404 Страница не найдена
-                                </div>
-                            }
-                        />
-                    </Routes>
-                </Layout>
-            </BrowserRouter>
-        </Provider>
-    );
+        if (route.layout == "main") {
+            element = <MainLayout>{element}</MainLayout>;
+        }
+
+        if (route.authOnly) {
+            element = <RequireAuth>{element}</RequireAuth>;
+        }
+
+        return <Route key={route.path} path={route.path} element={element} />;
+    }, []);
+
+    return <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>;
 }
 
 export default App;

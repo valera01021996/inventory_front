@@ -1,15 +1,14 @@
 // src/pages/LocationsDashboard.tsx
 import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { selectSelectedLocationId } from '../redux/inventorySlice';
 import { getLocations } from '../hooks/dataFetcher';
 import LocationCard from '../components/LocationCard';
 import DetailTile from '../components/DetailTile';
+import { useAppSelector } from 'hooks/useAppSelector';
 
 const allLocations = getLocations();
 
-const LocationsDashboard: React.FC = () => {
-    const selectedLocationId = useSelector(selectSelectedLocationId);
+const MainPage: React.FC = () => {
+    const selectedLocationId = useAppSelector(state => state.geo.location);
 
     const selectedLocation = useMemo(() => 
         allLocations.find(loc => loc.id === selectedLocationId) || allLocations[0]
@@ -49,4 +48,4 @@ const LocationsDashboard: React.FC = () => {
     );
 };
 
-export default LocationsDashboard;
+export default MainPage;

@@ -1,8 +1,8 @@
 // src/pages/ServersList.tsx
 import React, { useState, useMemo } from 'react';
-import { useParams } from 'react-router';
 import ServerDetailRow from '../components/ServerDetailRow';
 import { getLocations, getServers } from '../hooks/dataFetcher';
+import { useAppSelector } from 'hooks/useAppSelector';
 
 const serverListHeaders = [
     { key: 'name', label: 'Серверы' },
@@ -17,17 +17,17 @@ const serverListHeaders = [
 const allServers = getServers();
 const allLocations = getLocations();
 
-const ServersList: React.FC = () => {
-    const { locationId } = useParams<{ locationId: string }>();
+const ServersPage: React.FC = () => {
+    const { location } = useAppSelector(state => state.geo);
     const [expandedServerId, setExpandedServerId] = useState<string | null>(null); 
 
     const locationName = useMemo(() => 
-        allLocations.find(loc => loc.id === locationId)?.name || 'Unknown Location'
-    , [locationId]);
+        allLocations.find(loc => loc.id === location)?.name || 'Unknown Location'
+    , [location]);
     
     const servers = useMemo(() => 
-        allServers.filter(s => s.location.toLowerCase() === locationId?.toLowerCase()), 
-    [locationId]);
+        allServers.filter(s => s.location.toLowerCase() === location?.toLowerCase()), 
+    [location]);
 
     const handleRowClick = (serverId: string) => {
         setExpandedServerId(prevId => prevId === serverId ? null : serverId);
@@ -88,4 +88,4 @@ const ServersList: React.FC = () => {
     );
 };
 
-export default ServersList;
+export default ServersPage;
