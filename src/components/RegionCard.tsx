@@ -18,11 +18,11 @@ const RegionCard: React.FC<RegionCardProps> = ({ region, isSelected }) => {
         >
             <h3 className="font-semibold">{region.name}</h3>
             <p className={`text-xs ${region.is_active ? 'text-green-600' : 'text-red-600'}`}>
-                {region.is_active ? 'Active' : 'Inactive'}
+                {region.is_active ? 'Активен' : 'Неактивен'}
             </p>
             <div className='flex flex-col gap-0.5'>
-                <p className="text-infra-blue text-xs">Servers: {region.device_count ?? '-'}</p>
-                <p className="text-infra-blue text-xs">Racks: {region.rack_count ?? '-'}</p>
+                <p className="text-infra-blue text-xs">Серверы: {region.device_count ?? '-'}</p>
+                <p className="text-infra-blue text-xs">Стойки: {region.rack_count ?? '-'}</p>
             </div>
         </div>
     );
