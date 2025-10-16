@@ -1,11 +1,11 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 
 interface GeoState {
-    region: number | null;
+    region: number | string;
 }
 
 const initialState: GeoState = {
-    region: null,
+    region: "",
 };
 
 const geoSlice = createSlice({

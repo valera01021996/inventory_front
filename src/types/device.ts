@@ -19,7 +19,7 @@ export interface DeviceDTO {
         name: string;
     };
     location: LocationDTO;
-    site: SiteDTO[];
+    site: SiteDTO;
     name: string;
     height: number;
     position: number;

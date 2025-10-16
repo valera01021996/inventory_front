@@ -7,7 +7,7 @@ const deviceWithTags = api.enhanceEndpoints({
 });
 
 type SearchParams = {
-    region?: number;
+    region?: number | string;
     device_type?: number;
     role?: number;
     rack?: number | string;
