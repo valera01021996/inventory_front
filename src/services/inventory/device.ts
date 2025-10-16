@@ -29,7 +29,7 @@ export const deviceAPI = deviceWithTags.injectEndpoints({
             }),
             providesTags: () => ["Device"],
         }),
-        uploadDevice: build.mutation<unknown, { file: string }>({
+        uploadDevice: build.mutation<unknown, FormData>({
             query: data => ({
                 url: "/devices/devices/import-xlsx/",
                 method: "POST",

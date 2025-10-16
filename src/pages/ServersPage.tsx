@@ -1,7 +1,8 @@
 import { Fragment, useState } from 'react';
 import { useAppSelector } from 'hooks/useAppSelector';
-import { useFetchDevicesQuery } from 'services/index';
+import { useFetchDevicesQuery, useUploadDeviceMutation } from 'services/index';
 import ServerDetail from 'components/ServerDetail';
+import FileUploadButton from 'components/FileUpload';
 
 const headers = [
     { key: 'index', label: '№' },
@@ -20,8 +21,16 @@ export default function ServersPage() {
     const regionID = useAppSelector(state => state.geo.region);
 
     const { data: servers } = useFetchDevicesQuery({
-        region: regionID ?? undefined,
+        region: regionID,
     });
+    const [uploadServer, { isLoading }] = useUploadDeviceMutation();
+
+    const handleUpload = async (file: File) => {
+        const formData = new FormData();
+        formData.append('file', file);
+        
+        uploadServer(formData).unwrap();
+    };
 
     const handleRowClick = (serverId: number) => {
         setServerID(prevId => prevId === serverId ? null : serverId);
@@ -31,9 +40,11 @@ export default function ServersPage() {
         <div className="p-8">
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-2xl font-bold">Серверы</h1>
-                <button className="text-white px-4 py-2 rounded text-sm bg-blue-500 hover:bg-blue-600 transition">
-                    + Добавить сервер
-                </button>
+                <FileUploadButton
+                    label="+ Добавить сервер"
+                    onUpload={handleUpload}
+                    isLoading={isLoading}
+                />
             </div>
 
             <div className="bg-white shadow-md rounded-lg overflow-x-auto">
