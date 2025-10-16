@@ -1,5 +1,5 @@
 import type { ResultList } from "./api";
-import type { RackDTO } from "./geo";
+import type { LocationDTO, RackDTO, SiteDTO } from "./geo";
 import type { IPAddressDTO } from "./network";
 
 // ------------------- Device -------------------
@@ -18,16 +18,8 @@ export interface DeviceDTO {
         id: number;
         name: string;
     };
-    location: {
-        id: number;
-        name: string;
-        site: number;
-    };
-    site: {
-        id: number;
-        name: string;
-        region: number;
-    };
+    location: LocationDTO;
+    site: SiteDTO[];
     name: string;
     height: number;
     position: number;
