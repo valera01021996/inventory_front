@@ -5,35 +5,25 @@ import type { IPAddressDTO } from "./network";
 // ------------------- Device -------------------
 export interface DeviceDTO {
     id: number;
+    name: string;
+    height: number;
     device_id: string;
+    position: number;
+    serial_number: string;
     device_type: DeviceType;
-    rack: RackDTO;
-    platform: {
-        id: number;
-        name: string;
-    };
-    role: {
-        id: number;
-        name: string;
-    };
     location: LocationDTO;
+    site: SiteDTO;
+    rack: RackDTO;
+    platform: PlatformDTO;
+    role: RoleDTO;
     memory_modules: MemoryModuleDTO[];
+    raid_volumes: RaidVolumeDTO[];
     ip_addresses: IPAddressDTO[];
     power_units: PowerUnitsDTO[];
     processors: ProcessorDTO[];
     disks: DiskDTO[];
     fans: FanDTO[];
-    site: SiteDTO;
-    name: string;
-    height: number;
-    position: number;
-    psu: string;
-    cpu_model: string;
-    cpu_count: number;
-    ram: number;
-    serial_number: string;
 }
-
 export type DeviceList = ResultList<DeviceDTO>;
 
 // ------------------- Disk -------------------
@@ -50,6 +40,7 @@ export interface DiskDTO {
     controller: string;
     status: string;
 }
+export type DiskList = ResultList<DiskDTO>;
 
 export interface FanDTO {
     id: number;
@@ -99,9 +90,17 @@ export interface ProcessorDTO {
     status: string;
 }
 
-export type DiskList = ResultList<DiskDTO>;
+export interface RaidVolumeDTO {
+    id: number;
+    device: number;
+    raid_id: string;
+    name: string;
+    raid_level: string;
+    size: number;
+    controller: string;
+    status: string;
+}
 
-// ------------------- Device type -------------------
 export interface DeviceType {
     id: number;
     name: string;
@@ -109,4 +108,14 @@ export interface DeviceType {
         id: number;
         name: string;
     };
+}
+
+export interface RoleDTO {
+    id: number;
+    name: string;
+}
+
+export interface PlatformDTO {
+    id: number;
+    name: string;
 }

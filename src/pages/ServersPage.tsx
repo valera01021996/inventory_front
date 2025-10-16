@@ -7,10 +7,10 @@ import FileUploadButton from 'components/FileUpload';
 const headers = [
     { key: 'index', label: '№' },
     { key: 'name', label: 'Серверы' },
-    { key: 'ip', label: 'IP/MAC' },
+    { key: 'serial_number', label: 'Серийный номер' },
     { key: 'platform', label: 'Платформа' },
     { key: 'location', label: 'Локация' },
-    { key: 'rack_location', label: 'Стойка' },
+    { key: 'rack', label: 'Стойка' },
     { key: 'site', label: 'Сайт' },
     { key: 'device_type', label: 'Тип устройства' },
     { key: 'manufacturer', label: 'Производитель' },
@@ -67,7 +67,7 @@ export default function ServersPage() {
                                 >
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{index + 1}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{server.name}</td>
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server.ip_addresses?.[0]?.ip}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server.serial_number}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.platform?.name}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.location?.name}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.rack?.name}</td>

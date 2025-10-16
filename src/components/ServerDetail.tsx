@@ -11,37 +11,49 @@ export default function ServerDetail({ server }: ServerDetailProps) {
                 {/* General Info */}
                 <div className="flex justify-between text-sm mb-6 pb-4 border-b border-gray-200">
                     <div>
-                        <p className="text-xs text-gray-500">IP / MAC</p>
-                        <p className="font-medium text-gray-700">{server.ip_addresses?.[0]?.ip}</p>
-                        <p className="text-gray-500">{server.ip_addresses?.[0]?.network?.name}</p>
+                        <p className="text-xs text-gray-500">Серийный номер</p>
+                        <p className="font-medium text-gray-700">{server.serial_number ?? '-'}</p>
                     </div>
                     <div>
                         <p className="text-xs text-gray-500">Платформа</p>
-                        <p className="font-medium text-gray-700 truncate">{server.platform.name}</p>
+                        <p className="font-medium text-gray-700 truncate">{server?.platform?.name ?? '-'}</p>
                     </div>
                     <div>
                         <p className="text-xs text-gray-500">Стойка</p>
-                        <p className="font-medium text-gray-700 truncate">{server.rack.name}</p>
+                        <p className="font-medium text-gray-700 truncate">{server?.rack?.name ?? '-'}</p>
                     </div>
                     <div>
                         <p className="text-xs text-gray-500">Локация / Расположение</p>
-                        <p className="font-medium text-gray-700">{server.location.name}</p>
+                        <p className="font-medium text-gray-700">{server?.location?.name ?? '-'}</p>
                     </div>
                     <div>
                         <p className="text-xs text-gray-500">Тип устройства</p>
-                        <p className="font-medium text-gray-700">{server.device_type.name}</p>
-                        <p className="text-gray-500">{server.device_type.manufacturer.name}</p>
+                        <p className="font-medium text-gray-700">{server?.device_type?.name ?? '-'}</p>
+                        <p className="text-gray-500">{server?.device_type?.manufacturer?.name ?? '-'}</p>
                     </div>
                     <div>
                         <p className="text-xs text-gray-500">Роль</p>
-                        <p className="font-medium text-gray-700">{server.role.name}</p>
+                        <p className="font-medium text-gray-700">{server?.role?.name ?? '-'}</p>
                     </div>
                 </div>
 
-                {/* Scrollable Cards */}
                 <div className="max-h-[420px] overflow-y-auto pr-2 space-y-4">
+                    <Card title="IP адреса">
+                        {server?.ip_addresses?.length ? (
+                            server.ip_addresses.map(ip => (
+                                <CardRow
+                                    key={ip.id}
+                                    label={ip.ip}
+                                    value={`Сеть: ${ip.network.name} • Шлюз: ${ip.network.gateway} • VLAN: ${ip.network.vlan} • Префикс: ${ip.network.prefix_len}`}
+                                />
+                            ))
+                        ) : (
+                            <EmptyRow />
+                        )}
+                    </Card>
+
                     <Card title="Процессоры">
-                        {server.processors?.length ? (
+                        {server?.processors?.length ? (
                             server.processors.map(cpu => (
                                 <CardRow
                                     key={cpu.id}
@@ -60,7 +72,7 @@ export default function ServerDetail({ server }: ServerDetailProps) {
                                 <CardRow
                                     key={mem.id}
                                     label={mem.slot}
-                                    value={`${mem.size} GB ${mem.memory_type} ${mem.frequency_mhz} MHz (${mem.manufacturer})`}
+                                    value={`${mem.size} GB • ${mem.memory_type} • ${mem.frequency_mhz} MHz • [${mem.manufacturer}]`}
                                 />
                             ))
                         ) : (
@@ -74,7 +86,7 @@ export default function ServerDetail({ server }: ServerDetailProps) {
                                 <CardRow
                                     key={disk.id}
                                     label={disk.disk_model}
-                                    value={`${disk.size} GB ${disk.disk_type} [${disk.status}]`}
+                                    value={`${disk.size} GB • ${disk.disk_type} • [${disk.status}]`}
                                 />
                             ))
                         ) : (
@@ -88,7 +100,7 @@ export default function ServerDetail({ server }: ServerDetailProps) {
                                 <CardRow
                                     key={psu.id}
                                     label={psu.model}
-                                    value={`${psu.power_watts}W (${psu.status})`}
+                                    value={`${psu.power_watts}W • [${psu.status}]`}
                                 />
                             ))
                         ) : (
@@ -102,7 +114,21 @@ export default function ServerDetail({ server }: ServerDetailProps) {
                                 <CardRow
                                     key={fan.id}
                                     label={fan.fan_name}
-                                    value={`${fan.speed_rpm} RPM (${fan.status})`}
+                                    value={`${fan.speed_rpm} RPM • [${fan.status}]`}
+                                />
+                            ))
+                        ) : (
+                            <EmptyRow />
+                        )}
+                    </Card>
+
+                    <Card title="RAID массивы">
+                        {server.raid_volumes?.length ? (
+                            server.raid_volumes.map(raid => (
+                                <CardRow
+                                    key={raid.id}
+                                    label={raid.name}
+                                    value={`Уровень: ${raid.raid_level} • Контроллер: ${raid.controller} • Размер: ${raid.size} GB • [${raid.status}]`}
                                 />
                             ))
                         ) : (
