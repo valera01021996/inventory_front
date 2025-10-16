@@ -4,6 +4,7 @@ import { useFetchDevicesQuery } from 'services/index';
 import ServerDetail from 'components/ServerDetail';
 
 const headers = [
+    { key: 'index', label: '№' },
     { key: 'name', label: 'Серверы' },
     { key: 'ip', label: 'IP/MAC' },
     { key: 'platform', label: 'Платформа' },
@@ -29,10 +30,7 @@ export default function ServersPage() {
     return (
         <div className="p-8">
             <div className="flex justify-between items-center mb-4">
-                <div className='flex gap-1 items-center'>
-                    <h1 className="text-2xl font-bold">Серверы</h1>
-                    {servers && (<span className="text-gray-600">({servers?.results.length})</span>)}
-                </div>
+                <h1 className="text-2xl font-bold">Серверы</h1>
                 <button className="text-white px-4 py-2 rounded text-sm bg-blue-500 hover:bg-blue-600 transition">
                     + Добавить сервер
                 </button>
@@ -50,15 +48,16 @@ export default function ServersPage() {
                         </tr>
                     </thead>
                     <tbody className="bg-white divide-y divide-gray-200">
-                        {servers?.results.map(server => (
+                        {servers?.results.map((server, index) => (
                             <Fragment key={server.id}>
                                 <tr 
                                     className={`hover:bg-gray-100 cursor-pointer ${serverID === server.id ? 'bg-blue-50 border-b-2 border-infra-blue' : ''}`} 
                                     onClick={() => handleRowClick(server.id)}
                                 >
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{index + 1}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{server.name}</td>
-                                    <td className="px-6 py-4 text-sm text-gray-500">{server.ip_addresses?.[0]?.ip}</td>
-                                    <td className="px-6 py-4 text-sm text-gray-500 max-w-xs overflow-hidden text-ellipsis">{server?.platform?.name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server.ip_addresses?.[0]?.ip}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.platform?.name}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.location?.name}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.rack?.name}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{server?.site?.name}</td>

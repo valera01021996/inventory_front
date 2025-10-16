@@ -10,7 +10,7 @@ type SearchParams = {
     region?: number;
     device_type?: number;
     role?: number;
-    rack?: number;
+    rack?: number | string;
     platform?: number;
     search?: string;
 

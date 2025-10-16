@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { useParams } from 'react-router';
 import { getRacks } from '../hooks/dataFetcher';
 import type { RackUnit } from '../types/inventory';
+import { useFetchDevicesQuery } from 'services/index';
 
 // Utility to determine background color for rack units
 const getUnitColor = (unitType: RackUnit['type']) => {
@@ -14,9 +15,10 @@ const getUnitColor = (unitType: RackUnit['type']) => {
     }
 };
 
-
 const RackDetailPage: React.FC = () => {
-    const { rackId } = useParams<{ rackId: string }>();
+    const { rackId } = useParams<{ rackId: string }>();    
+    const { data: servers } = useFetchDevicesQuery({ rack: rackId }, { skip: !rackId });
+    console.log(servers);
     const allRacks = getRacks();
     const rack = useMemo(() => allRacks.find(r => r.id === rackId), [rackId, allRacks]);
 
